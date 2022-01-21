@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/utils/functions.dart';
+
 class WeatherInfoPage extends StatefulWidget {
   const WeatherInfoPage({Key? key }) : super(key: key);
   @override
@@ -24,6 +26,7 @@ class _WeatherInfoPageState extends State<WeatherInfoPage> {
   @override
   void initState() {
     super.initState();
+    Functions.determinePosition().then((e) {print(e);});
   }
 
   void _incrementCounter() {
