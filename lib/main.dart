@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'widgets/weather_info_page.dart';
 import 'utils/notification_service.dart';
@@ -37,6 +39,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  bool isSwitched = false;
 
   void _incrementCounter() {
     setState(() {
@@ -55,13 +58,58 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               margin: const EdgeInsets.all(10),
-              height: 300,
+              height: 270,
               child: const WeatherInfoPage(),
             ),
             Container(
               margin: new EdgeInsets.all(10),
-              height: 300,
-              child: const Text('area 2'),
+              height: 250,
+              child: Column(
+                children:[
+                  TimePickerSpinner(
+                    is24HourMode: false,
+                    normalTextStyle: const TextStyle(
+                        fontSize: 24,
+                        color: Colors.grey
+                    ),
+                    highlightedTextStyle: const TextStyle(
+                        fontSize: 24,
+                        color: Colors.black
+                    ),
+                    spacing: 50,
+                    itemHeight: 60,
+                    isForce2Digits: true,
+                    onTimeChange: (time) {
+                      if (isSwitched) {
+                        print(time.hour);
+                        print(time.minute);
+                      }
+                    },
+                  ),
+                  Switch(
+                      value: isSwitched,
+                      onChanged: (value) {
+                        if (value) {
+                          Fluttertoast.cancel();
+                          Fluttertoast.showToast(
+                            msg: "Notification On",
+                          );
+                        } else {
+                          Fluttertoast.cancel();
+                          Fluttertoast.showToast(
+                            msg: "Notification Off",
+                          );
+                        }
+                        setState(() {
+                        isSwitched = value;
+                        print(isSwitched);
+                        });
+                      },
+                    activeTrackColor: Colors.blueAccent,
+                    activeColor: Colors.white,
+                  )
+                ]
+              )
             ),
           ],
         ),
