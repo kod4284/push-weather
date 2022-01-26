@@ -1,4 +1,9 @@
 # push_weather
 
-Weather notification app
+Weather notification app 
+
+## Description
+
+## Motivation
+
 
