@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'widgets/weather_info_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-Future main() async {
+import 'widgets/weather_info_page.dart';
+import 'utils/notification_service.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
+  await NotificationService().init();
   runApp(const MyApp());
 }
 
