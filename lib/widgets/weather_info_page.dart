@@ -3,7 +3,6 @@ import 'package:geolocator/geolocator.dart';
 
 import '/utils/functions.dart';
 import '/utils/api.dart';
-import '/utils/notification_service.dart';
 
 class WeatherInfoPage extends StatefulWidget {
   const WeatherInfoPage({Key? key }) : super(key: key);
@@ -29,7 +28,6 @@ class _WeatherInfoPageState extends State<WeatherInfoPage> {
       //     weatherInfo.chanceOfRain.toString(),
       //     weatherInfo.chanceOfSnow.toString()
       //   );
-      await NotificationService().scheduleNotifications();
       return weatherInfo;
     }();
   }
