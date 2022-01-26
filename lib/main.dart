@@ -4,6 +4,7 @@ import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'widgets/weather_info_page.dart';
+import '/utils/notification_service.dart';
 import 'utils/notification_service.dart';
 
 Future<void> main() async {
@@ -38,14 +39,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   bool isSwitched = false;
-
-  void _incrementCounter() {
-    setState(() {
-     _counter++;
-    });
-  }
+  int _hour = 0;
+  int _minute = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +76,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     itemHeight: 60,
                     isForce2Digits: true,
                     onTimeChange: (time) {
+                      setState(() {
+                        _hour = time.hour;
+                        _minute = time.minute;
+                      });
                       if (isSwitched) {
                         print(time.hour);
                         print(time.minute);
+                        NotificationService().cancelAllNotifications();
+                        NotificationService().scheduleNotifications(time.hour, time.minute);
                       }
                     },
                   ),
@@ -91,11 +93,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       onChanged: (value) {
                         if (value) {
                           Fluttertoast.cancel();
+                          NotificationService().cancelAllNotifications();
+                          NotificationService().scheduleNotifications(_hour, _minute);
                           Fluttertoast.showToast(
                             msg: "Notification On",
                           );
                         } else {
                           Fluttertoast.cancel();
+                          NotificationService().cancelAllNotifications();
                           Fluttertoast.showToast(
                             msg: "Notification Off",
                           );
@@ -114,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: null,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
