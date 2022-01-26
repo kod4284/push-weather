@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 
 import '/utils/functions.dart';
 import '/utils/api.dart';
+import '/utils/notification_service.dart';
 
 class WeatherInfoPage extends StatefulWidget {
   const WeatherInfoPage({Key? key }) : super(key: key);
@@ -11,18 +12,6 @@ class WeatherInfoPage extends StatefulWidget {
 }
 
 class _WeatherInfoPageState extends State<WeatherInfoPage> {
-  String _location = "";
-  String _tempC = "";
-  String _tempF = "";
-  String _feelsLikeC = "";
-  String _feelsLikeF = "";
-  String _lastUpdated = "";
-  String _chanceOfRain = "";
-  String _chanceOfSnow = "";
-  String _humidity = "";
-  bool _willItRain = false;
-  bool _willItSnow = false;
-  bool _isCelsius = false;
   int _counter = 0;
   late Future<WeatherInfo> futureWeatherInfo;
 
@@ -31,8 +20,17 @@ class _WeatherInfoPageState extends State<WeatherInfoPage> {
     super.initState();
     futureWeatherInfo = () async {
       Position position = await Functions.determinePosition();
-      print(position);
-      return await Api.fetchWeatherInfo(position.latitude, position.longitude);
+      WeatherInfo weatherInfo = await Api.fetchWeatherInfo(position.latitude, position.longitude);
+      /* Temp test functions */
+      // await NotificationService()
+      //   .showNotifications(
+      //     weatherInfo.name,
+      //     weatherInfo.tempF.toString(),
+      //     weatherInfo.chanceOfRain.toString(),
+      //     weatherInfo.chanceOfSnow.toString()
+      //   );
+      await NotificationService().scheduleNotifications();
+      return weatherInfo;
     }();
   }
 
