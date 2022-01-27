@@ -41,6 +41,7 @@ class _WeatherInfoPageState extends State<WeatherInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(top: 80),
       child: FutureBuilder<WeatherInfo>(
         future: futureWeatherInfo,
         builder: (context, snapshot) {
@@ -60,19 +61,79 @@ Widget weatherInfoWidget (AsyncSnapshot<WeatherInfo> snapshot) {
   WeatherInfo data = snapshot.data!;
   return Container(
     child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text("Location: " + data.name),
-        const Text("* Temp"),
-        Text("  Current Temp: " + (true ? data.tempC.toString() : data.tempF.toString())),
-        Text("  Min Temp: " + (true ? data.minTempC.toString() : data.minTempF.toString())),
-        Text("  Max Temp: " + (true ? data.maxTempC.toString() : data.maxTempF.toString())),
-        Text("  Feels Like: " + (true ? data.feelsLikeC.toString() : data.feelsLikeF.toString())),
-        Text("Status:\n"
-            + "Chance of Rain: " + data.chanceOfRain.toString() + "%"
-            + "Chance of Snow: " + data.chanceOfSnow.toString() + "%"),
-        Text("Humidity: " + data.humidity.toString()),
-        Text("Last Updated: " + data.lastUpdated.toString()),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(data.tempF.toString()+'°',
+                        style: const TextStyle(fontSize: 70)),
+                    Row(
+                      children: [
+                        const Icon(Icons.room, color: Colors.blue, size: 30),
+                        Text(data.name),
+                      ],
+                    )
+                  ]),
+              Image.network('https:'+data.icon)
+            ],
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 40),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Row(
+                children: [
+                  Text("  " + data.maxTempF.toString()+'°'
+                  + " / " + data.minTempF.toString()+'°'
+                  + "  Feels Like " + data.feelsLikeF.toString()+'°',
+                  style: const TextStyle(
+                    fontSize: 15
+                  ),),
+                ],
+              ),
+              Padding(padding: EdgeInsets.fromLTRB(10, 5, 0, 0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Icons.water_damage_outlined, color: Colors.blueAccent, size: 32),
+                      Text(data.humidity.toString() + "%  "),
+                      const Icon(Icons.beach_access,color: Colors.blue, size: 30),
+                      Text(data.chanceOfRain.toString() + "%  "),
+                      const Icon(Icons.ac_unit, size:28),
+                      Text(data.chanceOfSnow.toString() + "%"),
+
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(Icons.date_range, size:28, color: Colors.deepPurple,),
+                          Text(data.lastUpdated.toString()),
+                        ],
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left:100),
+                        child: Icon(Icons.sync, size:30)
+                      )
+                    ],
+                  )
+                ],
+              )
+              ),
+            ],
+          ),
+        )
       ],
     ),
   );

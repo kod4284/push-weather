@@ -46,19 +46,16 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
               margin: const EdgeInsets.all(10),
-              height: 270,
+              height: 370,
               child: const WeatherInfoPage(),
             ),
             Container(
-              margin: new EdgeInsets.all(10),
+              margin: EdgeInsets.all(10),
               height: 250,
               child: Column(
                 children:[
