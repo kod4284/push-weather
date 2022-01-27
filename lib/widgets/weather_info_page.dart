@@ -30,12 +30,20 @@ class _WeatherInfoPageState extends State<WeatherInfoPage> {
       child: FutureBuilder<WeatherInfo>(
         future: futureWeatherInfo,
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          if (snapshot.connectionState != ConnectionState.done) {
+            return Container(
+              width: 300,
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.hasData) {
             return weatherInfoWidget(snapshot);
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return const CircularProgressIndicator();
+          return Container(
+            width: 300,
+            child: CircularProgressIndicator(),
+          );
         },
       ),
     );
