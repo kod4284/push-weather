@@ -25,15 +25,7 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
     );
-
   }
-  // Future selectNotification(String payload) async {
-  //   await Navigator.push(
-  //     context,
-  //     MaterialPageRoute<void>(builder: (context) => SecondScreen(payload)),
-  // );
-  //instance of FlutterLocalNotificationsPlugin
-
 
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
@@ -79,8 +71,6 @@ class NotificationService {
           minutes: phoneNow.minute,
           seconds: phoneNow.second)
         ).add(Duration(days:-1000, hours: hour, minutes: minute));
-    print(now);
-    print(future);
     await flutterLocalNotificationsPlugin.zonedSchedule(
         0,
         "Weather notification",
