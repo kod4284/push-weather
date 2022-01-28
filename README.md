@@ -16,11 +16,11 @@ You should install:
 
 * Flutter ^2.8
 
-Please following the official [Flutter installation guide]("https://docs.flutter.dev/get-started/install").
+Please following the official [Flutter-Installation-Guide]("https://docs.flutter.dev/get-started/install").
 
 !Important: you should have two files before build this app.
 
-1. "google-services.json" from [Google Firebase Firestore]("https://firebase.google.com/")
+1. "google-services.json" from [Google-Firebase-Firestore]("https://firebase.google.com/")
 2. ".env" from [Weatherapi]("www.weatherapi.com")
    1. Sign-up for Weatherapi and get and API key
    2. Make a file named ".env"
