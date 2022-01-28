@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import '/widgets/weather_info_page.dart';
 import '/utils/notification_service.dart';
@@ -11,6 +12,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
   await NotificationService().init();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -103,8 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           );
                         }
                         setState(() {
-                        isSwitched = value;
-                        print(isSwitched);
+                          isSwitched = value;
                         });
                       },
                     activeTrackColor: Colors.blueAccent,
