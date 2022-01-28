@@ -36,8 +36,8 @@ End with a few screenshots
 * External libraries used in this project
 
 ## Authors
-Daewoong Ko - 
-Haesun Lee - 
+Daewoong Ko  
+Haesun Lee  
 
 ## Version History
 
