@@ -1,16 +1,30 @@
-# push_weather
+# Push Weather
 
-Weather notification app 
+A Weather notification app
+
+<p align="center"><img src="./assets/thumbnail.png" alt="IMG" width="50%" /></p>
 
 ## Description
-This is a basic weather notification application. The application takes the GPS location data. Base on the data, we pull the weather information from the website. User will set the certain time to get weather to be informed.
+This is a simple weather notification application. Through this app, users can check weather information based on their current location. The app also sends notifications to check the weather at a specific time set by the user.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-The things you'll need in order to use the app and how to install them
-<pre><code>{Running code}</code></pre>
+
+You should install:
+
+* Flutter ^2.8
+
+Please following the official [Flutter Installation Guide](https://docs.flutter.dev/get-started/install).
+
+!Important: you should have two files before build this app.
+
+1. "google-services.json" from [Google Firebase Firestore](https://firebase.google.com/)
+2. ".env" from [Weatherapi](https://www.weatherapi.com)
+   1. Sign-up for Weatherapi and get and API key
+   2. Make a file named ".env"
+   3. Enter the key by following this format ```WEATHER_API_KEY='<YOUR API KEY HERE>'``` in the .env file 
 
 ### How to use
 A step by step guide on how to use the app's features
@@ -25,11 +39,15 @@ End with a few screenshots
 Daewoong Ko - 
 Haesun Lee - 
 
+## Version History
+
+- 1.0.0
+  - Initial Release
+
 ## License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License
 
 ## Acknowledgments
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+- [Implementing Local Notification](https://blog.logrocket.com/implementing-local-notifications-in-flutter/)
+- [Flutter App Icon Change](https://www.geeksforgeeks.org/flutter-changing-app-icon/)
+- [Flutter App Release](https://here4you.tistory.com/198)
