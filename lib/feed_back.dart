@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import '/utils/firestore.dart';
+
 class FeedBackPage extends StatefulWidget {
   const FeedBackPage({Key? key}) : super(key: key);
 
@@ -38,7 +42,11 @@ class _FeedBackPage extends State<FeedBackPage> {
               padding: EdgeInsets.only(top: 8),
               child: ElevatedButton(
                 onPressed: () {
-
+                  Firestore.appendToArray(_content);
+                  Navigator.pop(context);
+                  Fluttertoast.showToast(
+                    msg: "Thank you for the feedback!",
+                  );
                 },
                 child: const Text('Send'),
                 style: ElevatedButton.styleFrom(
