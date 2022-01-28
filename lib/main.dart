@@ -3,9 +3,9 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'widgets/weather_info_page.dart';
+import '/widgets/weather_info_page.dart';
 import '/utils/notification_service.dart';
-import 'utils/notification_service.dart';
+import '/feed_back.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -116,9 +116,14 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const FeedBackPage())
+          );
+        },
+        tooltip: 'to Feedback page',
+        child: const Icon(Icons.mail_outline),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
