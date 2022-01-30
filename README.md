@@ -27,7 +27,7 @@ Please following the official [Flutter Installation Guide](https://docs.flutter.
    3. Enter the key by following this format ```WEATHER_API_KEY='<YOUR API KEY HERE>'``` in the .env file 
 
 ### How to use
-<img width="250" alt="Setting" src="https://user-images.githubusercontent.com/76894761/151682851-2f453170-a418-4489-a8bf-cf41c2090c8a.png">
+<img width="250" alt="feedback" src="https://user-images.githubusercontent.com/76894761/151682852-17af9c50-7368-4a64-ab5a-d2a0caaf8744.png">
 This is the Home screen that you see when you open the application. 
 You will see 
 
@@ -41,7 +41,7 @@ You will see
 * Notification setting timer  
 * Feedback Icon  
 
-<img width="250" alt="feedback" src="https://user-images.githubusercontent.com/76894761/151682852-17af9c50-7368-4a64-ab5a-d2a0caaf8744.png">
+<img width="250" alt="Setting" src="https://user-images.githubusercontent.com/76894761/151682851-2f453170-a418-4489-a8bf-cf41c2090c8a.png">
 Once you click the feedback Icon, you can find a container that you can send the feedbacks to the developer.
 
 ## Built with
