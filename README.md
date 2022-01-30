@@ -27,10 +27,21 @@ Please following the official [Flutter Installation Guide](https://docs.flutter.
    3. Enter the key by following this format ```WEATHER_API_KEY='<YOUR API KEY HERE>'``` in the .env file 
 
 ### How to use
-A step by step guide on how to use the app's features
-End with a few screenshots
+<img width="348" alt="Setting" src="https://user-images.githubusercontent.com/76894761/151682851-2f453170-a418-4489-a8bf-cf41c2090c8a.png">
+This is the Home screen that you see when you open the application. 
+You will see 
+- Temperature in F and C 
+- Weather 
+- Feels like temperature 
+- Humidity 
+- Probability of rain 
+- Probability of snow
+- Today's date
+- Notification setting timer
+- Feedback Icon 
 
-<img width="250" height="350" alt="Setting" src="https://user-images.githubusercontent.com/76894761/151682851-2f453170-a418-4489-a8bf-cf41c2090c8a.png"> <img width="250" height="350 alt="feedback" src="https://user-images.githubusercontent.com/76894761/151682852-17af9c50-7368-4a64-ab5a-d2a0caaf8744.png">
+<img width="349" alt="feedback" src="https://user-images.githubusercontent.com/76894761/151682852-17af9c50-7368-4a64-ab5a-d2a0caaf8744.png">
+Once you click the feedback Icon, you can find a container that you can send the feedbacks to the developer.
 
 ## Built with
 * Flutter - Dart
